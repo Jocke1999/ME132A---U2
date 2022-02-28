@@ -1,15 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>U2</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
     <script src="database.js"></script>
+    <script src="main.js"></script>
 </head>
+
 <body>
-    
+    <h1>Cat database</h1>
+
+    <form id="add-cat-form">
+        <input id="name" type="text" placeholder="Name">
+        <input id="breed" type="text" placeholder="Breed">
+        <input id="age" type="number" placeholder="Age">
+        <input id="color" type="text" placeholder="Color">
+        <button>Add</button>
+    </form>
+
+    <div id="filters">
+        <form id="filter-by-breed">
+            <input id="filter-breed" type="text" placeholder="Filter by breed">
+            <button>Filter</button>
+        </form>
+
+        <form id="filter-by-age">
+            <input id="filter-age" type="number" placeholder="Filter by age">
+            <button>Filter</button>
+        </form>
+
+        <form id="filter-by-color">
+            <input id="filter-by-color" type="text" placeholder="Filter by color">
+            <button>Filter</button>
+        </form>
+
+        <button id="show-all" type="button">Show all</button>
+    </div>
+
+    <div id="headers">
+        <div>Name</div>
+        <div>Breed</div>
+        <div>Age</div>
+        <div>Color</div>
+        <div>Actions</div>
+    </div>
+
+    <div id="cats"></div>
+
 </body>
+
 </html>
