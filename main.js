@@ -26,7 +26,7 @@ function removeCatById(cats, id) {
         }
     }
 }
-
+// returnerar alla namn
 function getCatsByName(cats, name) {
     let catsByName = [];
 
@@ -65,19 +65,6 @@ function getCatsByAge(cats, age) {
     return catsByAge;
 }
 
-
-// räknar ut den ungefärliga åldern på katterna
-function getAverageCatAge(cats) {
-    let sumOfAges = 0;
-
-
-    for (let cat of cats) {
-        sumOfAges = sumOfAges + cat.age;
-    }
-
-
-    return Math.round(sumOfAges / cats.length);
-}
 // returnerar alla färger
 function getCatsByColor(cats, color) {
     let catsByColor = [];
@@ -207,7 +194,7 @@ function setFilterCat() {
     nameForm.addEventListener("submit", onFilterByNameSubmit);
     breedForm.addEventListener("submit", onFilterByBreedSubmit);
     ageForm.addEventListener("submit", onFilterByAgeSubmit);
-    colorForm.addEventListener("submit", onFilterByAgeSubmit);
+    colorForm.addEventListener("submit", onFilterByColorSubmit);
     showAll.addEventListener("click", onShowAllClick);
 }
 
