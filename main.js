@@ -107,7 +107,7 @@ function renderCats(cats) {
         catsElement.appendChild(catElement);
     }
 
-    setRemoveCatHandlers();
+    setRemoveCat();
 }
 
 function onAddCatSubmit(event) {
@@ -130,8 +130,8 @@ function onAddCatSubmit(event) {
     form.reset();
 }
 
-function setAddCatHandler() {
-    let form = document.getElementById("add-car-form");
+function setAddCat() {
+    let form = document.getElementById("add-cat-form");
     form.addEventListener("submit", onAddCatSubmit);
 }
 
@@ -142,7 +142,7 @@ function onRemoveCatClick(event) {
     renderCats(database);
 }
 
-function setRemoveCatHandlers() {
+function setRemoveCat() {
     let buttons = document.querySelectorAll(".cat button");
 
     for (let button of buttons) {
@@ -178,7 +178,7 @@ function onShowAllClick() {
     renderCats(database);
 }
 
-function setFilterCatHandlers() {
+function setFilterCat() {
     let breedForm = document.getElementById("filter-by-breed");
     let ageForm = document.getElementById("filter-by-age");
     let colorForm = document.getElementById("filter-by-color");
@@ -191,5 +191,5 @@ function setFilterCatHandlers() {
 }
 
 renderCats(database);
-setAddCatHandler();
-setFilterCatHandlers();
+setAddCat();
+setFilterCat();
