@@ -18,7 +18,7 @@ let database = [
     {
         id: 3,
         name: "Sötnos",
-        age: 2,
+        age: 4,
         breed: "Bengal",
         color: "Orange",
     },

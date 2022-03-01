@@ -1,11 +1,12 @@
 body {
     margin: 0 auto;
-    max-width: 600px;
-    font-family: Courier;
+    max-width: 500px;
+    font-family: monospace;
   }
   
   h1 {
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   #add-cat-form {
@@ -34,15 +35,16 @@ body {
   
   #headers {
     padding: 10px 20px;
-    border-bottom: 1px solid #aaa;
-    background: grey;
+    border-bottom: 1px solid black;
+    background-color: blueviolet;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
   
   #cats {
-    background: grey;
+    background-color: cadetblue;
     padding: 10px;
+    background-color: darkgreen;
   }
   
   .cat {
@@ -52,9 +54,9 @@ body {
   }
   
   .cat div {
-    /* Center vertically */
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   
   .cat:nth-child(odd) {

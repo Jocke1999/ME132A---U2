@@ -1,5 +1,5 @@
 "use strict";
-
+//Skapar först ett katt objekt och sedan returnerar den
 function createNewCat(name, breed, age, color) {
     let cat = {
         name: name,
@@ -11,24 +11,35 @@ function createNewCat(name, breed, age, color) {
     return cat;
 }
 
-
+//lägger till en katt till min databas
 function addCatToDatabase(database, cat) {
     database.push(cat);
 }
 
+// tar bort katt utifrån sitt id från databasen
 function removeCatById(cats, id) {
     for (let i = 0; i < cats.length; i++) {
-
         let cat = cats[i];
-
         if (cat.id == id) {
-
             cats.splice(i, 1);
             return;
         }
     }
 }
 
+function getCatsByName(cats, name) {
+    let catsByName = [];
+
+    for (let cat of cats) {
+        if (cat.name.toLowerCase() == name.toLowerCase()) {
+            catsByName.push(cat);
+        }
+    }
+
+    return catsByName;
+}
+
+// returnerar alla raser 
 function getCatsByBreed(cats, breed) {
     let catsByBreed = [];
 
@@ -41,7 +52,7 @@ function getCatsByBreed(cats, breed) {
     return catsByBreed;
 }
 
-
+// returnerar alla åldrar 
 function getCatsByAge(cats, age) {
     let catsByAge = [];
 
@@ -55,7 +66,7 @@ function getCatsByAge(cats, age) {
 }
 
 
-
+// räknar ut den ungefärliga åldern på katterna
 function getAverageCatAge(cats) {
     let sumOfAges = 0;
 
@@ -67,7 +78,7 @@ function getAverageCatAge(cats) {
 
     return Math.round(sumOfAges / cats.length);
 }
-
+// returnerar alla färger
 function getCatsByColor(cats, color) {
     let catsByColor = [];
 
@@ -80,7 +91,7 @@ function getCatsByColor(cats, color) {
     return catsByColor;
 }
 
-
+// framställer katterna i ett HTML element
 function renderCat(cat) {
     let div = document.createElement("div");
     div.classList.add("cat");
@@ -150,6 +161,13 @@ function setRemoveCat() {
     }
 }
 
+function onFilterByNameSubmit(event) {
+    event.preventDefault();
+    let name = document.getElementById("filter-name").value;
+    let cats = getCatsByName(database, name);
+    renderCats(cats);
+}
+
 function onFilterByBreedSubmit(event) {
     event.preventDefault();
     let breed = document.getElementById("filter-breed").value;
@@ -172,6 +190,7 @@ function onFilterByColorSubmit(event) {
 }
 
 function onShowAllClick() {
+    document.getElementById("filter-name").value = "";
     document.getElementById("filter-breed").value = "";
     document.getElementById("filter-age").value = "";
     document.getElementById("filter-color").value = "";
@@ -179,11 +198,13 @@ function onShowAllClick() {
 }
 
 function setFilterCat() {
+    let nameForm = document.getElementById("filter-by-name");
     let breedForm = document.getElementById("filter-by-breed");
     let ageForm = document.getElementById("filter-by-age");
     let colorForm = document.getElementById("filter-by-color");
     let showAll = document.getElementById("show-all");
 
+    nameForm.addEventListener("submit", onFilterByNameSubmit);
     breedForm.addEventListener("submit", onFilterByBreedSubmit);
     ageForm.addEventListener("submit", onFilterByAgeSubmit);
     colorForm.addEventListener("submit", onFilterByAgeSubmit);
