@@ -1,14 +1,14 @@
 body {
+  background-color: rgb(217, 192, 240);
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 900px;
     font-family: cursive;
-    font-size: 20px;
+    font-size: 23px;
     font-style: italic;
   }
   
   h1 {
     text-align: center;
-    
   }
   
   #add-cat-form {
@@ -26,9 +26,9 @@ body {
     margin-bottom: 15px;
     gap: 15px;
   }
-  
+  #filter-by-name,
   #filter-by-breed,
-  #filter-by-age
+  #filter-by-age,
   #filter-by-color {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,24 +36,31 @@ body {
   }
   
   #headers {
-    padding: 10px 20px;
-    border-bottom: 1px solid black;
+    place-items: center;
+    padding: 15px 30px;
+    border: 3px solid black;
     background-color: blueviolet;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    border-radius: 30px;
   }
   
   #cats {
-    border: black solid 8px;
     background-color: cadetblue;
-    padding: 10px;
     background-color: rgb(168, 102, 230);
+    padding-right: 40px;
+    border-radius: 30px;
+    border: 3px solid black;
+    padding-bottom: 20px;
+    padding-top: 20px;
   }
   
   .cat {
     padding: 10px 10px;
     display: grid;
+    place-items: center;
     grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
   }
   
   .cat div {
@@ -63,5 +70,31 @@ body {
   }
   
   .cat:nth-child(odd) {
-    background-color: beige;
+    background-color: lightblue;
+    border-radius: 30px;
+    box-shadow: 10px 10px;
   }
+
+  .cat:nth-child(even){
+    background-color: darkorchid;
+    border-radius: 30px;
+    box-shadow: 10px 10px;
+  }
+
+  button{ 
+    transition: 0.8s;
+  }
+
+  button:hover{
+    transition: 0.8s;
+    background-color: rgb(192, 125, 192);
+  }
+
+.cat-gif{
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 35px;
+}
+
+  

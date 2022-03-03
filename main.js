@@ -85,7 +85,7 @@ function renderCat(cat) {
     div.id = cat.id;
 
     div.innerHTML = `
-        <div>${cat.name}</div>
+        <li>${cat.name}</li>
         <div>${cat.breed}</div>
         <div>${cat.age}</div>
         <div>${cat.color}</div>
@@ -108,6 +108,7 @@ function renderCats(cats) {
     setRemoveCat();
 }
 
+
 function onAddCatSubmit(event) {
 
     event.preventDefault();
@@ -116,6 +117,18 @@ function onAddCatSubmit(event) {
     let breed = document.getElementById("breed").value;
     let age = Number(document.getElementById("age").value);
     let color = document.getElementById("color").value;
+
+    if (name == "") {
+        return alert("Please fill all the boxes")
+    } else if (breed == "") {
+        return alert("Please fill all the boxes")
+    }
+    else if (age == "") {
+        return alert("Please fill all the boxes")
+    }
+    else if (color == "") {
+        return alert("Please fill all the boxes")
+    }
 
     let cat = createNewCat(name, breed, age, color);
 
@@ -140,6 +153,7 @@ function onRemoveCatClick(event) {
     renderCats(database);
 }
 
+
 function setRemoveCat() {
     let buttons = document.querySelectorAll(".cat button");
 
@@ -147,6 +161,7 @@ function setRemoveCat() {
         button.addEventListener("click", onRemoveCatClick);
     }
 }
+
 
 function onFilterByNameSubmit(event) {
     event.preventDefault();
