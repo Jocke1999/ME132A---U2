@@ -1,4 +1,7 @@
 "use strict";
+
+//Github : https://github.com/Jocke1999 
+
 //Skapar först ett katt objekt och sedan returnerar den
 function createNewCat(name, breed, age, color) {
     let cat = {
