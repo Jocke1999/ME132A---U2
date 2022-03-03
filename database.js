@@ -1,6 +1,7 @@
-// Databasen över alla katter
+// Databasen över alla katter! 
+// Jag valde att använda "const" då databasen inte ska ändras
 
-let database = [
+const database = [
     {
         id: 1,
         name: "Matisse",
