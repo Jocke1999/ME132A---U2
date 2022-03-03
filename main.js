@@ -16,6 +16,8 @@ function addCatToDatabase(database, cat) {
     database.push(cat);
 }
 
+
+
 // tar bort katt utifrån sitt id från databasen
 function removeCatById(cats, id) {
     for (let i = 0; i < cats.length; i++) {
@@ -78,7 +80,7 @@ function getCatsByColor(cats, color) {
     return catsByColor;
 }
 
-// framställer katterna i ett HTML element
+// framställer katterna(objekt) i ett HTML element
 function renderCat(cat) {
     let div = document.createElement("div");
     div.classList.add("cat");
@@ -112,33 +114,37 @@ function renderCats(cats) {
 function onAddCatSubmit(event) {
 
     event.preventDefault();
-
+    //man sätter HTML elementens värde i en variabel
     let name = document.getElementById("name").value;
     let breed = document.getElementById("breed").value;
     let age = Number(document.getElementById("age").value);
     let color = document.getElementById("color").value;
 
+    //skapar en "alert" som visar användaren att man måste fylla i alla rutor först
     if (name == "") {
-        return alert("Please fill all the boxes")
+        return alert("Please fill in all the boxes")
     } else if (breed == "") {
-        return alert("Please fill all the boxes")
+        return alert("Please fill in all the boxes")
     }
     else if (age == "") {
-        return alert("Please fill all the boxes")
+        return alert("Please fill in all the boxes")
     }
     else if (color == "") {
-        return alert("Please fill all the boxes")
+        return alert("Please fill in all the boxes")
     }
 
-    let cat = createNewCat(name, breed, age, color);
+    else if (confirm("Are you sure?") == true) {
 
-    cat.id = database[database.length - 1].id + 1;
+        let cat = createNewCat(name, breed, age, color);
 
-    addCatToDatabase(database, cat)
-    renderCats(database);
+        cat.id = database[database.length - 1].id + 1;
+        //lägger till i databasen
+        addCatToDatabase(database, cat)
+        renderCats(database);
 
-    let form = document.getElementById("add-cat-form");
-    form.reset();
+        let form = document.getElementById("add-cat-form");
+        form.reset();
+    }
 }
 
 function setAddCat() {
@@ -146,13 +152,23 @@ function setAddCat() {
     form.addEventListener("submit", onAddCatSubmit);
 }
 
+//När man klickar på "remove" ska det försvinna en katt från databasen under "id'et "cat"."
 function onRemoveCatClick(event) {
     let button = event.target;
     let id = button.parentElement.id;
-    removeCatById(database, id);
-    renderCats(database);
-}
 
+    let result = confirm('Are you sure you want to delete?');
+
+    if (result == true) {
+        removeCatById(database, id);
+    }
+    else {
+        return false;
+    }
+    renderCats(database);
+
+    alert(message);
+}
 
 function setRemoveCat() {
     let buttons = document.querySelectorAll(".cat button");
@@ -162,7 +178,7 @@ function setRemoveCat() {
     }
 }
 
-
+//Detta filterar de olika "age, breed, name, color och det sammanställande(showallclick)
 function onFilterByNameSubmit(event) {
     event.preventDefault();
     let name = document.getElementById("filter-name").value;
@@ -199,6 +215,7 @@ function onShowAllClick() {
     renderCats(database);
 }
 
+//när man matar in värdena i "filter" och submitar och clickar på de
 function setFilterCat() {
     let nameForm = document.getElementById("filter-by-name");
     let breedForm = document.getElementById("filter-by-breed");
@@ -213,6 +230,7 @@ function setFilterCat() {
     showAll.addEventListener("click", onShowAllClick);
 }
 
+//Direkt kod, konstant kod
 renderCats(database);
 setAddCat();
 setFilterCat();
